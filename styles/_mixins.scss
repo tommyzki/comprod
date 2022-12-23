@@ -1,0 +1,123 @@
+//color
+$primary-color-main: #F54949;
+$primary-color-surface: #FFEEEE;
+$primary-color-outline: #FCC2C2;
+$primary-color-hover: #F88686;
+$primary-color-pressed: #A33131;
+$primary-color-focused: 2px solid rgba(245, 73, 73, 0.2);
+$primary-color-focused-shadow: 0 0 0 0.25rem rgba(245, 73, 73, 0.2);
+$secondary-color-main: #FD2975;
+$secondary-color-surface: #FFE8F0;
+$secondary-color-outline: #FEB8D1;
+$secondary-color-hover: #FE70A3;
+$secondary-color-pressed: A91B4E;
+$secondary-color-focused: 2px solid rgba(253, 41, 117, 0.2);
+$secondary-color-focused-shadow: 0 0 0 0.25rem rgba(253, 41, 117, 0.2);
+
+$neutral-black-color: #353535;
+$soft-black-color: #353535;
+$softer-black-color: #555555;
+$dark-grey-color: #757575;
+
+$placeholder-grey-color: #BCBCBC;
+$outline-grey-color: #D7D7D7;
+$disabled-grey-color: #E7E7E7;
+$background-grey-color: #F7F7F7;
+$white-color: #FFFFFF;
+$neutral-color: #E5E5E5;
+
+$danger-status-color: #FF5656;
+$success-status-color: #57D99A;
+
+$surface-color: #FFFCF2;
+
+@mixin phone() {
+    @media (max-width: 576px){
+        @content
+    }
+}
+
+@mixin tablet() {
+    @media (max-width: 767px){
+        @content
+    }
+}
+
+//font
+
+@mixin bold {
+  font-weight: 700 !important;
+}
+
+@mixin semiBold {
+  font-weight: 600 !important;
+}
+
+@mixin medium {
+  font-weight: 500 !important;
+}
+
+@mixin header-64 {
+  font-size: 64px !important;
+  line-height: 80px !important;
+  color: $neutral-black-color;
+}
+
+@mixin header-48 {
+  font-size: 48px !important;
+  line-height: 60px !important;
+  color: $neutral-black-color;
+}
+
+@mixin header-40 {
+  font-size: 40px !important;
+  line-height: 48px !important;
+  color: $neutral-black-color;
+}
+
+@mixin subHeader-24 {
+  font-size: 24px !important;
+  line-height: 30px !important;
+  color: $neutral-black-color;
+}
+
+@mixin body-16 {
+  font-size: 16px !important;
+  line-height: 20px !important;
+  color: $neutral-black-color;
+}
+
+@mixin body-14 {
+  font-size: 14px !important;
+  line-height: 18px !important;
+  color: $neutral-black-color;
+}
+
+
+@mixin body-12 {
+  font-size: 12px !important;
+  line-height: 16px !important;
+  color: $neutral-black-color;
+}
+
+@mixin link-14 {
+  font-size: 14px !important;
+  line-height: 18px !important;
+  color: $neutral-black-color;
+}
+
+@mixin link-12 {
+  font-size: 12px !important;
+  line-height: 16px !important;
+  color: $neutral-black-color;
+}
+
+//3d shadow
+
+@mixin card-shadow {
+  box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.08) !important;
+}
+
+@mixin button-shadow {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12) !important;
+}

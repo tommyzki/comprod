@@ -1,0 +1,52 @@
+@import "styles/mixins";
+
+.container {
+    height: 72px;
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 40px;
+    @include phone(){
+        height: auto;
+        padding: 20px;
+    }
+}
+
+.fixedHeader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+.blueColor{
+    background-color: #151515;
+    color: $white-color;
+    transition: all 0.5s;
+}
+
+.whiteColor{
+    background-color: white;
+    color: $neutral-black-color;
+    transition: all 0.5s;
+}
+
+.imageWrapper {
+    width: 78px;
+    height: 27px;
+    position: relative;
+    align-self: center;
+    cursor: pointer;
+}
+
+.lastBtn{
+    margin-left: 8px
+}
+
+.navTitle {
+    align-items: center;
+    a{
+        @include body-16;
+    }
+}
+
+

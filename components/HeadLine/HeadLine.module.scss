@@ -1,0 +1,108 @@
+@import "styles/mixins";
+
+.container {
+  display: flex !important;
+  height: 100vh;
+  justify-content: center !important;
+  align-items: center !important;
+  @include phone(){
+    padding: 20px;
+  }
+}
+
+.bodyContainer {
+  max-width: 708px;
+  text-align: center;
+  @include phone() {
+    position: unset;
+    text-align: -webkit-center;
+    margin: 0;
+    padding: 100px 0 0 0;
+  }
+}
+
+//Header Title
+
+.headerTitle64 {
+  @include bold;
+  @include header-64;
+  color: $white-color;
+  z-index: 1;
+  .padTitle{
+    margin-left: 90px;
+    margin-right: 12px;
+    @include phone() {
+      margin-left: 0px;
+    }
+  }
+  @include phone() {
+    margin-left: 0px;
+    @include header-40;
+    color: $white-color;
+  }
+}
+
+.headerSubTitle {
+  @include subHeader-24;
+  color: $white-color;
+  max-width: 470px;
+  margin: 36px auto;
+  @include phone() {
+    max-width: 260px;
+    margin: 28px auto;
+    @include body-14;
+    color: $white-color;
+  }
+}
+
+.buttonPadding{
+  margin: 0 10px;
+  @include phone() {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+.imageContainer{
+  padding-top: 120px;
+  @include phone() {
+    padding-top: 40px;
+  }
+}
+
+// .imageAbsolute {
+//   position: relative;
+//   &-imageLeft {
+//     height: 250px;
+//     width: 250px;
+//     position: absolute;
+//     left: 0;
+//     top: 100px;
+//     z-index: 0;
+//     @include tablet() {
+//       height: 150px;
+//       width: 150px;
+//     }
+//     @include phone() {
+//       display: none;
+//     }
+//   }
+//   &-imageRight {
+//     height: 250px;
+//     width: 250px;
+//     position: absolute;
+//     right: 0;
+//     top: 250px;
+//     z-index: 0;
+//     @include tablet() {
+//       height: 150px;
+//       width: 150px;
+//     }
+//     @include phone() {
+//       height: 150px;
+//       width: 150px;
+//       top: 40px;
+//       // display: none;
+//     }
+//   }
+// }

@@ -1,0 +1,366 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "mixins";
+
+
+html,
+body {
+  height: 100%;
+  margin: auto;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #353535;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#__next {
+  height: 100%;
+}
+
+.btn {
+  height: 46px;
+  border-radius: 4px;
+  @include body-16;
+  @include semiBold;
+  padding: 12px 16px;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1px;
+  }
+
+  .leftIcon {
+    position: relative;
+    margin-right: 8px;
+    height: 20px;
+    top: -1px;
+    width: 20px;
+  }
+
+  .rightIcon {
+    position: relative;
+    margin-left: 8px;
+    height: 20px;
+    top: -1px;
+    width: 20px;
+  }
+
+  &-primary {
+    background: $primary-color-main;
+    border: 1px solid transparent;
+    color: $white-color;
+    @include button-shadow;
+
+    &:hover {
+      border-color: $primary-color-hover;
+      background: $primary-color-hover;
+    }
+
+    &:active {
+      border-color: $primary-color-hover;
+      background: $primary-color-pressed;
+      box-shadow: $primary-color-focused;
+
+      &:focus {
+        box-shadow: $primary-color-focused;
+      }
+    }
+
+    &:focus {
+      border-color: $primary-color-hover;
+      background: $primary-color-pressed;
+      box-shadow: $primary-color-focused;
+    }
+  }
+
+  &-primary-box {
+    background: transparent;
+    border: 1px solid $primary-color-main;
+    color: $primary-color-main;
+
+    &:hover {
+      background: transparent;
+      border: 1px solid $primary-color-hover;
+      color: $primary-color-hover;
+    }
+
+    &:active {
+      background: transparent;
+      border: 1px solid $primary-color-pressed;
+      color: $primary-color-pressed;
+
+      &:focus {
+        box-shadow: 0 0 0 0rem rgb(138 79 255 / 25%);
+      }
+    }
+
+    &:focus {
+      background: transparent;
+      border: 1px solid $primary-color-pressed;
+      color: $primary-color-pressed;
+      box-shadow: 0 0 0 0rem rgb(138 79 255 / 25%);
+    }
+  }
+
+  &-primary-text {
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: $primary-color-main;
+
+    &:hover {
+      background: transparent;
+      border: none;
+      color: $primary-color-hover;
+    }
+
+    &:active {
+      background: transparent;
+      border: none;
+      color: $primary-color-pressed;
+
+      &:focus {
+        box-shadow: 0 0 0 0rem rgb(138 79 255 / 25%);
+      }
+    }
+
+    &:focus {
+      background: transparent;
+      border: none;
+      color: $primary-color-pressed;
+      box-shadow: 0 0 0 0rem rgb(138 79 255 / 25%);
+    }
+  }
+
+  &-secondary {
+    background: $secondary-color-main;
+    border: 1px solid transparent;
+    color: $white-color;
+    @include button-shadow;
+
+    &:hover {
+      border-color: $secondary-color-hover;
+      background: $secondary-color-hover;
+    }
+
+    &:active {
+      background: $secondary-color-pressed;
+      box-shadow: $secondary-color-focused;
+
+      &:focus {
+        box-shadow: $secondary-color-focused;
+      }
+    }
+
+    &:focus {
+      background: $secondary-color-pressed;
+      box-shadow: $secondary-color-focused;
+    }
+  }
+
+  &-secondary-box {
+    background: transparent;
+    border: 1px solid $secondary-color-main;
+    color: $secondary-color-main;
+
+    &:hover {
+      background: transparent;
+      border: 1px solid $secondary-color-hover;
+      color: $secondary-color-hover;
+    }
+
+    &:active {
+      background: transparent;
+      border: 1px solid $secondary-color-pressed;
+      color: $secondary-color-pressed;
+
+      &:focus {
+        box-shadow: 0 0 0 0rem rgb(138 79 255 / 25%);
+      }
+    }
+
+    &:focus {
+      background: transparent;
+      border: 1px solid $secondary-color-pressed;
+      color: $secondary-color-pressed;
+      box-shadow: 0 0 0 0rem rgb(138 79 255 / 25%);
+    }
+  }
+
+  &-secondary-text {
+    background: transparent;
+    border: none;
+    color: $secondary-color-main;
+
+    &:hover {
+      background: transparent;
+      border: none;
+      color: $secondary-color-hover;
+    }
+
+    &:active {
+      background: transparent;
+      border: none;
+      color: $secondary-color-pressed;
+
+      &:focus {
+        box-shadow: 0 0 0 0rem rgb(138 79 255 / 25%);
+      }
+    }
+
+    &:focus {
+      background: transparent;
+      border: none;
+      color: $secondary-color-pressed;
+      box-shadow: 0 0 0 0rem rgb(138 79 255 / 25%);
+    }
+  }
+}
+
+a:hover {
+  color: $primary-color-pressed;
+}
+
+textarea {
+  background: $white-color !important;
+  border: 1px solid $neutral-color !important;
+  border-radius: 8px !important;
+  min-height: 130px !important;
+  @include body-14;
+  &::placeholder {
+    @include body-14;
+    color: $neutral-color !important;
+  }
+
+  &:focus {
+    border: 1px solid $primary-color-main !important;
+    box-shadow: $primary-color-focused-shadow !important;
+    &-visible {
+      outline: none !important;
+    }
+  }
+}
+
+input {
+  background: $white-color !important;
+  border: 1px solid $neutral-color !important;
+  border-radius: 8px !important;
+  height: 38px !important;
+  @include body-14;
+  &::placeholder {
+    @include body-14;
+    color: $neutral-color !important;
+  }
+
+  &:focus {
+    border: 1px solid $primary-color-main !important;
+    box-shadow: $primary-color-focused-shadow !important;
+    &-visible {
+      outline: none !important;
+    }
+  }
+}
+
+.input-form-container{
+  display: inline-flex;
+  .input-form {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 40px !important;
+    width: 40px !important;
+    z-index: 3;
+    &-left{
+      padding-left: 18px;
+    }
+    .iconImageWrapper {
+      width: 20px;
+      height: 16px;
+      position: relative;
+      align-self: center;
+    }
+  }
+}
+
+.formTitle{
+  @include body-14;
+  @include medium;
+}
+
+.primary-color {
+  color: $primary-color-main;
+}
+
+.background-black {
+  //background: linear-gradient(180deg, #A5C9FF 0%, rgba(164, 200, 255, 0.65) 62.37%, rgba(164, 200, 255, 0) 100%);
+  background: #151515;
+  color: #FFFFFF;
+  transition: all 0.5s;
+  z-index: 0;
+}
+
+.background-white {
+  //background: linear-gradient(180deg, #A5C9FF 0%, rgba(164, 200, 255, 0.65) 62.37%, rgba(164, 200, 255, 0) 100%);
+  background: #FFFFFF;
+  color: #353535;
+  transition: all 0.5s;
+  z-index: 0;
+}
+
+.headerTitle {
+  @include bold;
+  @include header-48;
+  @include phone() {
+    margin-left: 0px;
+    @include header-40;
+  }
+}
+
+.headerText{
+  @include subHeader-24;
+  @include phone() {
+    @include body-16;
+  }
+}
+
+.headerTitleBlack {
+  @include bold;
+  @include header-48;
+  color: $white-color;
+  @include phone() {
+    margin-left: 0px;
+    @include header-40;
+    color: $white-color;
+  }
+}
+
+.headerTextBlack {
+  @include subHeader-24;
+  color: $white-color;
+  @include phone() {
+    @include body-16;
+    color: $white-color;
+  }
+}
+
+.navbar-light .navbar-toggler {
+  border-color: transparent !important;
+}
+
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: 0 0 0 0rem;
+}

@@ -1,0 +1,31 @@
+@import "styles/mixins";
+
+.backgroundColor {
+    background-color: $primary-color-surface;
+}
+
+.container {
+    max-width: 1280px;
+    margin: auto;
+    padding: 60px 40px;
+
+    @include phone() {
+        margin: 0;
+        padding: 40px 20px;
+    }
+}
+
+.requestForm{
+    text-align: right;
+    align-self: center;
+    @include tablet() {
+        text-align: left;
+    }
+}
+
+.emailInput {
+    width: 280px;
+    height: 40px !important;
+    margin-right: 12px;
+    padding-left: 48px;
+}

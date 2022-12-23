@@ -1,0 +1,64 @@
+@import "styles/mixins";
+
+.container {
+    max-width: 1280px;
+    margin: auto;
+    padding: 120px 40px 60px 40px;
+
+    @include phone() {
+        text-align: left;
+        margin: 0;
+        padding: 40px 20px;
+    }
+}
+
+.reviewContainer {
+    background: $background-grey-color;
+    border-radius: 12px;
+    padding: 65px;
+    transition: all 0.5s;
+    @include phone() {
+        padding: 32px;
+    }
+    .titleList {
+        @include bold;
+        @include header-48;
+        padding-bottom: 4px;
+        @include phone() {
+            @include subHeader-24;
+            color: $neutral-black-color;
+        }
+    }
+    .listData {
+        @include body-16;
+        color: $neutral-black-color;
+        cursor: pointer;
+        padding-bottom: 12px;
+    }
+}
+
+.reviewContainerBlack {
+    background: $neutral-black-color;
+    border-radius: 12px;
+    padding: 65px;
+    transition: all 0.5s;
+    @include phone() {
+        padding: 32px;
+    }
+    .titleList {
+        @include bold;
+        @include header-48;
+        color: $white-color;
+        padding-bottom: 4px;
+        @include phone() {
+            @include subHeader-24;
+            color: $white-color;
+        }
+    }
+    .listData {
+        @include body-16;
+        color: $white-color;
+        cursor: pointer;
+        padding-bottom: 12px;
+    }
+}

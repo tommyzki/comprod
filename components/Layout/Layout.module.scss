@@ -1,0 +1,27 @@
+@import "styles/mixins";
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerBg{
+    border-top: 1px solid $neutral-color;;
+    color: $neutral-black-color;
+    
+}
+
+.footerContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 60px 40px;
+    max-width: 1280px;
+    margin: auto;
+    @include phone(){
+        padding: 20px 20px;
+      }
+}
+
+.content {
+    flex: 1;
+}

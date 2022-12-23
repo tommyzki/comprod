@@ -1,0 +1,74 @@
+@import "styles/mixins";
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 60px 0px 160px 0px;
+    @include phone() {
+        text-align: left;
+        margin: 0;
+        padding: 40px 20px 80px 20px;
+    }
+}
+
+.bodyContainer{
+  margin: 40px 0 16px 0;
+  @include phone() {
+    margin: 24px 0;
+  }
+}
+
+.footerContainer{
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  @include phone() {
+    display: block;
+  }
+}
+
+.buttonPadding{
+  margin: 0 24px 0 0;
+  min-width: 140px;
+  @include phone() {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+.textTitle {
+  @include semiBold;
+  @include header-40;
+  text-align: center;
+  &.padTitle{
+      justify-content: center;
+    @include phone() {
+      margin-top: 20px;
+      margin-left: 0px;
+      @include subHeader-24;
+    }
+  }
+  @include phone() {
+    margin-left: 0px;
+    font-size: 36px;
+    line-height: 54px;
+  }
+}
+
+.mb24px {
+  margin-bottom: 24px;
+  @include phone() {
+    margin-bottom: 12px;
+  }
+}
+
+.tncText {
+  @include body-14;
+  max-width: 262px;
+  .linkText{
+    color: $primary-color-main;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+}

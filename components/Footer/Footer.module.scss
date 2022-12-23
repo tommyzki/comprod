@@ -1,0 +1,50 @@
+@import "styles/mixins";
+
+.titleList {
+    @include semiBold;
+    @include body-14;
+    padding-bottom: 16px;
+    @include tablet() {
+        padding-top: 40px;
+    }
+}
+
+.listData {
+    @include body-14;
+    padding-bottom: 16px;
+    padding-right: 40px;
+    color: $neutral-black-color;
+    cursor: pointer;
+}
+
+.copyright {
+    font-weight: 400;
+    @include body-14;
+    line-height: 16px;
+    color: $neutral-black-color;
+}
+
+.office{
+    padding-top: 24px;
+}
+
+.reviewBtnContainer {
+    display: flex;
+
+    .btnArrow {
+        width: 40px;
+        height: 40px;
+        background-color: $neutral-black-color;
+        border-radius: 50%;
+        text-align: center;
+        padding: 6px 0px;
+        margin: 0 16px 0 0;
+
+        @include tablet() {
+            width: 30px;
+            height: 30px;
+            margin: 0 6px;
+            padding: 2px 0px;
+        }
+    }
+}
