@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <div className={[styles.fixedHeader, context.themeContext === "white" ? styles.whiteColor : styles.blueColor].join(" ")}     >
-      <Navbar className={styles.container} expand="sm">
+      <Navbar className={styles.container} expand="md">
         <Navbar.Brand href="#home">
           <Link href="/">
             <div className={styles.imageWrapper}>

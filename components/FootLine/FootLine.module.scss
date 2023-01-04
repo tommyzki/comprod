@@ -38,14 +38,14 @@
 
 .textTitle {
   @include semiBold;
-  @include header-40;
+  @include text-40;
   text-align: center;
   &.padTitle{
       justify-content: center;
     @include phone() {
       margin-top: 20px;
       margin-left: 0px;
-      @include subHeader-24;
+      @include text-24;
     }
   }
   @include phone() {
@@ -63,7 +63,7 @@
 }
 
 .tncText {
-  @include body-14;
+  @include text-14;
   max-width: 262px;
   .linkText{
     color: $primary-color-main;

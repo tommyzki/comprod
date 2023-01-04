@@ -10,7 +10,7 @@ $secondary-color-main: #FD2975;
 $secondary-color-surface: #FFE8F0;
 $secondary-color-outline: #FEB8D1;
 $secondary-color-hover: #FE70A3;
-$secondary-color-pressed: A91B4E;
+$secondary-color-pressed: #A91B4E;
 $secondary-color-focused: 2px solid rgba(253, 41, 117, 0.2);
 $secondary-color-focused-shadow: 0 0 0 0.25rem rgba(253, 41, 117, 0.2);
 
@@ -31,8 +31,12 @@ $success-status-color: #57D99A;
 
 $surface-color: #FFFCF2;
 
+//screen size
+$desktop-view: 1280px;
+$mobile-view: 576px;
+
 @mixin phone() {
-    @media (max-width: 576px){
+    @media (max-width: $mobile-view){
         @content
     }
 }
@@ -41,6 +45,12 @@ $surface-color: #FFFCF2;
     @media (max-width: 767px){
         @content
     }
+}
+
+@mixin miniScreen() {
+  @media (max-width: $desktop-view){
+      @content
+  }
 }
 
 //font
@@ -57,56 +67,55 @@ $surface-color: #FFFCF2;
   font-weight: 500 !important;
 }
 
-@mixin header-64 {
-  font-size: 64px !important;
-  line-height: 80px !important;
-  color: $neutral-black-color;
-}
-
-@mixin header-48 {
-  font-size: 48px !important;
-  line-height: 60px !important;
-  color: $neutral-black-color;
-}
-
-@mixin header-40 {
+@mixin text-40 {
   font-size: 40px !important;
   line-height: 48px !important;
   color: $neutral-black-color;
 }
 
-@mixin subHeader-24 {
+@mixin text-32 {
+  font-size: 32px !important;
+  line-height: 40px !important;
+  color: $neutral-black-color;
+}
+
+@mixin text-28 {
+  font-size: 28px !important;
+  line-height: 36px !important;
+  color: $neutral-black-color;
+}
+
+@mixin text-24 {
   font-size: 24px !important;
-  line-height: 30px !important;
+  line-height: 32px !important;
   color: $neutral-black-color;
 }
 
-@mixin body-16 {
+@mixin text-20 {
+  font-size: 20px !important;
+  line-height: 26px !important;
+  color: $neutral-black-color;
+}
+
+@mixin text-18 {
+  font-size: 18px !important;
+  line-height: 24px !important;
+  color: $neutral-black-color;
+}
+
+@mixin text-16 {
   font-size: 16px !important;
-  line-height: 20px !important;
+  line-height: 22px !important;
   color: $neutral-black-color;
 }
 
-@mixin body-14 {
+@mixin text-14 {
   font-size: 14px !important;
   line-height: 18px !important;
   color: $neutral-black-color;
 }
 
-
-@mixin body-12 {
-  font-size: 12px !important;
-  line-height: 16px !important;
-  color: $neutral-black-color;
-}
-
-@mixin link-14 {
-  font-size: 14px !important;
-  line-height: 18px !important;
-  color: $neutral-black-color;
-}
-
-@mixin link-12 {
+@mixin text-12 {
   font-size: 12px !important;
   line-height: 16px !important;
   color: $neutral-black-color;
@@ -120,4 +129,69 @@ $surface-color: #FFFCF2;
 
 @mixin button-shadow {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12) !important;
+}
+
+// Font Calculator
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size, $min-line-height, $max-line-height) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      line-height: $min-line-height;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        line-height: calc(#{$min-line-height} + #{strip-unit($max-line-height - $min-line-height)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+        line-height: $max-line-height;
+      }
+    }
+  }
+}
+
+@mixin fluid-image($min-vw, $max-vw, $min-size, $max-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-size);
+  $u4: unit($max-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      width: $min-size;
+      @media screen and (min-width: $min-vw) {
+        width: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        width: $max-size;
+      }
+    }
+  }
+}
+
+// font size template size
+@mixin font-btn {
+  @include fluid-type($mobile-view, $desktop-view, 12px, 16px, 16px, 22px)
+}
+
+@mixin font-title {
+  @include bold;
+  @include fluid-type($mobile-view, $desktop-view, 24px, 40px, 32px, 48px)
+}
+
+@mixin font-subtitle {
+  @include fluid-type($mobile-view, $desktop-view, 16px, 24px, 22px, 32px)
+}
+
+@mixin font-text {
+  @include fluid-type($mobile-view, $desktop-view, 12px, 16px, 16px, 22px)
 }

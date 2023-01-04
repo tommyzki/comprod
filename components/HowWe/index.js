@@ -7,17 +7,16 @@ export default function HowWe() {
     const context = useContext(AppContext);
 
   return (
-    <div className={styles.container}>
-        <Row>
-            <Col className={context.themeContext === "white" ? 'headerTitle' : 'headerTitleBlack'}>
+    <div className='container'>
+        <div className={['allCenter', styles.maxContainer].join(" ")}>
+            <div className={context.themeContext === "white" ? 'headerTitle' : 'headerTitleBlack'}>
                 How we do it?
-            </Col>
-        </Row>
-        <Row>
-            <Col className={context.themeContext === "white" ? 'headerText' : 'headerTextBlack'}>
+            </div>
+            <div className={context.themeContext === "white" ? 'headerText' : 'headerTextBlack'}>
                 We translate your vision through our design and codes to craft the ideal product that will help you grow your business.
-            </Col>
-        </Row>
+            </div>
+        </div>
+        
         <Row className={styles.pointTitle}>
             <Col md={6} xl={3}>
                 <Image

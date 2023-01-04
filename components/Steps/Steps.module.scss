@@ -2,7 +2,7 @@
 
 .container {
     width: 100%;
-    max-width: 1280px;
+    max-width: $desktop-view;
     margin: auto;
     padding: 60px 40px;
     @include phone() {
@@ -13,12 +13,12 @@
 
 .headerText{
     @include bold;
-    @include header-40;
+    @include text-40;
     padding-bottom: 30px;
     @include phone() {
       margin-left: 0px;
       padding-bottom: 0px;
-      @include subHeader-24;
+      @include text-24;
     }
 }
 
@@ -101,20 +101,20 @@
             }
             .sectionHeader{
                 @include bold;
-                @include subHeader-24;
+                @include text-24;
                 color: $primary-color-main;
                 @include phone() {
                     @include semiBold;
-                    @include body-16;
+                    @include text-16;
                     color: $primary-color-main;
                 }
             }
             .sectionBody{
-                @include body-16;
+                @include text-16;
                 padding: 20px 0px 40px 0px;
                 @include phone() {
                     font-weight: 400;
-                    @include body-12;
+                    @include text-12;
                     padding: 20px 0px;
                 }
             }
@@ -126,7 +126,7 @@
                 text-underline-offset: 4px;
                 color: $primary-color-main;
                 @include phone() {
-                    @include body-16;
+                    @include text-16;
                     color: $primary-color-main;
                 }
             }

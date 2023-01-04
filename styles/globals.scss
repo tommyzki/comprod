@@ -26,10 +26,27 @@ a {
   height: 100%;
 }
 
+.allCenter {
+  text-align: center;
+
+}
+
+.container {
+  max-width: $desktop-view;
+  margin: auto;
+  padding: 60px 40px;
+  @include tablet(){
+    padding: 50px 30px;
+  }
+  @include phone() {
+      text-align: left;
+      margin: 0;
+      padding: 40px 20px;
+  }
+}
+
 .btn {
-  height: 46px;
-  border-radius: 4px;
-  @include body-16;
+  @include font-btn;
   @include semiBold;
   padding: 12px 16px;
 
@@ -43,44 +60,34 @@ a {
   .leftIcon {
     position: relative;
     margin-right: 8px;
-    height: 20px;
     top: -1px;
-    width: 20px;
+    @include fluid-image($mobile-view, $desktop-view, 15px, 20px)
   }
 
   .rightIcon {
     position: relative;
     margin-left: 8px;
-    height: 20px;
     top: -1px;
-    width: 20px;
+    @include fluid-image($mobile-view, $desktop-view, 15px, 20px)
   }
 
   &-primary {
     background: $primary-color-main;
-    border: 1px solid transparent;
+    border: 0px solid transparent;
     color: $white-color;
-    @include button-shadow;
-
     &:hover {
-      border-color: $primary-color-hover;
       background: $primary-color-hover;
     }
-
     &:active {
-      border-color: $primary-color-hover;
       background: $primary-color-pressed;
-      box-shadow: $primary-color-focused;
-
+      box-shadow: $primary-color-focused-shadow;
       &:focus {
-        box-shadow: $primary-color-focused;
+        box-shadow: $primary-color-focused-shadow;
       }
     }
-
     &:focus {
-      border-color: $primary-color-hover;
       background: $primary-color-pressed;
-      box-shadow: $primary-color-focused;
+      box-shadow: $primary-color-focused-shadow;
     }
   }
 
@@ -238,9 +245,9 @@ textarea {
   border: 1px solid $neutral-color !important;
   border-radius: 8px !important;
   min-height: 130px !important;
-  @include body-14;
+  @include text-14;
   &::placeholder {
-    @include body-14;
+    @include text-14;
     color: $neutral-color !important;
   }
 
@@ -258,9 +265,9 @@ input {
   border: 1px solid $neutral-color !important;
   border-radius: 8px !important;
   height: 38px !important;
-  @include body-14;
+  @include text-14;
   &::placeholder {
-    @include body-14;
+    @include text-14;
     color: $neutral-color !important;
   }
 
@@ -295,7 +302,7 @@ input {
 }
 
 .formTitle{
-  @include body-14;
+  @include text-14;
   @include medium;
 }
 
@@ -320,39 +327,23 @@ input {
 }
 
 .headerTitle {
-  @include bold;
-  @include header-48;
-  @include phone() {
-    margin-left: 0px;
-    @include header-40;
-  }
+  @include font-title;
+  padding-bottom: 16px;
 }
 
 .headerText{
-  @include subHeader-24;
-  @include phone() {
-    @include body-16;
-  }
+  @include font-subtitle;
 }
 
 .headerTitleBlack {
-  @include bold;
-  @include header-48;
+  @include font-title;
+  padding-bottom: 16px;
   color: $white-color;
-  @include phone() {
-    margin-left: 0px;
-    @include header-40;
-    color: $white-color;
-  }
 }
 
 .headerTextBlack {
-  @include subHeader-24;
+  @include font-subtitle;
   color: $white-color;
-  @include phone() {
-    @include body-16;
-    color: $white-color;
-  }
 }
 
 .navbar-light .navbar-toggler {
@@ -363,4 +354,11 @@ input {
   text-decoration: none;
   outline: 0;
   box-shadow: 0 0 0 0rem;
+}
+
+.react-horizontal-scrolling-menu--scroll-container {
+  @include phone() {
+    overflow-x: scroll;
+  }
+  overflow-x: hidden;
 }

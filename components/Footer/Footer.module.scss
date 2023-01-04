@@ -2,7 +2,7 @@
 
 .titleList {
     @include semiBold;
-    @include body-14;
+    @include text-14;
     padding-bottom: 16px;
     @include tablet() {
         padding-top: 40px;
@@ -10,7 +10,7 @@
 }
 
 .listData {
-    @include body-14;
+    @include text-14;
     padding-bottom: 16px;
     padding-right: 40px;
     color: $neutral-black-color;
@@ -19,7 +19,7 @@
 
 .copyright {
     font-weight: 400;
-    @include body-14;
+    @include text-14;
     line-height: 16px;
     color: $neutral-black-color;
 }

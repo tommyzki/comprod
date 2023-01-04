@@ -11,63 +11,26 @@
 }
 
 .bodyContainer {
-  max-width: 708px;
+  max-width: 864px;
   text-align: center;
-  @include phone() {
-    position: unset;
-    text-align: -webkit-center;
-    margin: 0;
-    padding: 100px 0 0 0;
-  }
-}
-
-//Header Title
-
-.headerTitle64 {
-  @include bold;
-  @include header-64;
-  color: $white-color;
-  z-index: 1;
-  .padTitle{
-    margin-left: 90px;
-    margin-right: 12px;
-    @include phone() {
-      margin-left: 0px;
-    }
+  @include miniScreen() {
+    max-width: calc(100% - 96px);
+    min-width: 450px;
   }
   @include phone() {
-    margin-left: 0px;
-    @include header-40;
-    color: $white-color;
+    max-width: calc(100% - 50px);
+    min-width: 340px;
   }
 }
 
 .headerSubTitle {
-  @include subHeader-24;
+  @include font-subtitle;
   color: $white-color;
-  max-width: 470px;
-  margin: 36px auto;
-  @include phone() {
-    max-width: 260px;
-    margin: 28px auto;
-    @include body-14;
-    color: $white-color;
-  }
+  margin: 2.25rem auto;
 }
 
 .buttonPadding{
   margin: 0 10px;
-  @include phone() {
-    display: block;
-    margin: 10px 0;
-  }
-}
-
-.imageContainer{
-  padding-top: 120px;
-  @include phone() {
-    padding-top: 40px;
-  }
 }
 
 // .imageAbsolute {

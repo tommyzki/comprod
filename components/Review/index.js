@@ -8,22 +8,22 @@ export default function Review() {
 const context = useContext(AppContext);
 
   return (
-    <div id="review" className={styles.container}>
-        <div className={ context.themeContext === "white" ? styles.reviewContainer : styles.reviewContainerBlack}>
+    <div id="review" className='container'>
+        <div className={[styles.reviewContainer, context.themeContext === "white" ? "" : styles.reviewContainerBlack].join(" ")}>
             <Row>
-                <Col xs={6} md={6} xl={3}>
+                <Col xs={6} md={3} xl={3}>
                     <div className={styles.titleList}>100+</div>
                     <div className={styles.listData}>number of clients</div>
                 </Col>
-                <Col xs={6} md={6} xl={3}>
+                <Col xs={6} md={3} xl={3}>
                     <div className={styles.titleList}>250+</div>
                     <div className={styles.listData}>projects</div>
                 </Col>
-                <Col xs={6} md={6} xl={3}>
+                <Col xs={6} md={3} xl={3}>
                     <div className={styles.titleList}>300K+</div>
                     <div className={styles.listData}>line of codes</div>
                 </Col>
-                <Col xs={6} md={6} xl={3}>
+                <Col xs={6} md={3} xl={3}>
                     <div className={styles.titleList}>4000+</div>
                     <div className={styles.listData}>hours of work</div>
                 </Col>

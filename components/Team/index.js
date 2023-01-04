@@ -1,55 +1,70 @@
-import { Row, Col, Button, Carousel } from 'react-bootstrap'
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import { Row, Col, Button } from 'react-bootstrap'
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import styles from './Team.module.scss';
+import useDrag from './useDrag.ts';
+
+
 
 export default function Team() {
-  return (
-    <div id='about' className={styles.container}>
-        <Row>
-            <Col className='headerTitle'>
+
+    const { dragStart, dragStop, dragMove } = useDrag();
+
+    const handleDrag = function (_a) {
+        const {scrollContainer} = _a;
+        return function (ev) {
+            return dragMove(ev, (posDiff) => {
+                if (scrollContainer.current) {
+                    scrollContainer.current.scrollLeft += posDiff;
+                }
+            });
+        };
+    };
+    
+
+    return (
+    <div id='about'>
+        <div className={ styles.headerContainer }>
+            <div className='headerTitle'>
                 People in Concise
-            </Col>
-        </Row>
+            </div>
+        </div>
 
-        <Row className='m-5'>
-            <Col>
-                <Carousel variant="dark">
-                    <Carousel.Item>
-                        <img
-                            className=""
-                            src="/image/image-placeholder1.png"
-                            alt="First slide"
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                            <img
-                            className=""
-                            src="/image/image-placeholder2.png"
-                            alt="Second slide"
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className=""
-                            src="/image/image-placeholder3.png"
-                            alt="Third slide"
-                        />
-                    </Carousel.Item>
-                </Carousel>
-            </Col>
-        </Row>
+        <div onMouseLeave={dragStop}>
+            <ScrollMenu 
+                onMouseDown={() => dragStart}
+                onMouseUp={() => dragStop}
+                onMouseMove={handleDrag}
+                id='slider' 
+            >
+                <img
+                    className={ styles.imageScroll }
+                    src="/image/image-placeholder1.png"
+                    alt="First slide"
+                    draggable="false"
+                />
+                <img
+                    className={ styles.imageScroll }
+                    src="/image/image-placeholder2.png"
+                    alt="First slide"
+                    draggable="false"
+                />
+                <img
+                    className={ styles.imageScroll }
+                    src="/image/image-placeholder3.png"
+                    alt="First slide"
+                    draggable="false"
+                />
+            </ScrollMenu>
+        </div>
 
-        <Row>
-            <Col className={styles.subTitle}>
-                Our coffee-powered team who are eager to build the product you imagine it to be.
-            </Col>
-        </Row>
+        <div className={styles.subTitle}>
+            Our coffee-powered team who are eager to build the product you imagine it to be.
+        </div>
 
-        <Row>
-            <Col>
-                <Button variant="primary-text" className={styles.buttonPadding}>Learn more about us<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
-            </Col>
-        </Row>
-
+        <div className={styles.subTitle}>
+            <Button variant="primary-text" className={styles.buttonPadding}>Learn more about us<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
+        </div>
     </div>
   )
 }
