@@ -23,7 +23,7 @@ export default function HowWe() {
                     src="/icon/ideate.svg"
                     width={228}
                     height={32}
-                    className={styles.checkIcon}
+                    className={[styles.checkIcon, styles.resizeImg].join(" ")}
                 />
                 <p className={styles.whytitle}>
                     Ideate
@@ -37,7 +37,7 @@ export default function HowWe() {
                     src="/icon/design.svg"
                     width={228}
                     height={32}
-                    className={styles.checkIcon}
+                    className={[styles.checkIcon, styles.resizeImg].join(" ")}
                 />
                 <p className={styles.whytitle}>
                     Design
@@ -51,7 +51,7 @@ export default function HowWe() {
                     src="/icon/build.svg"
                     width={228}
                     height={32}
-                    className={styles.checkIcon}
+                    className={[styles.checkIcon, styles.resizeImg].join(" ")}
                 />
                 <p className={styles.whytitle}>
                     Build
@@ -65,7 +65,7 @@ export default function HowWe() {
                     src="/icon/improve.svg"
                     width={32}
                     height={32}
-                    className={styles.checkIcon}
+                    className={[styles.checkIcon, styles.resizeImg2].join(" ")}
                 />
                 <p className={styles.whytitle}>
                     Improve

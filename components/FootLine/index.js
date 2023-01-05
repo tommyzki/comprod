@@ -4,15 +4,12 @@ import styles from './FootLine.module.scss';
 
 export default function FootLine() {
   return (
-    <div id='contact' className={styles.container}>
-      <Row>
-        <Col className={[styles.textTitle, styles.padTitle].join(" ")}>
-          Have a product in mind?<br/>Let’s talk about that.
-        </Col>
-      </Row>
+    <div id='contact' className={['container', styles.maxContainer].join(" ")}>
+      <div className={['headerTitle', styles.padTitle].join(" ")}>
+        Have a product in mind?<br/>Let’s talk about that.
+      </div>
 
       <Form>
-
         <Row className={styles.bodyContainer}>
           <Col md={6}>
             <Form.Group className={styles.mb24px} controlId="formName">
@@ -38,14 +35,12 @@ export default function FootLine() {
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group> */}
 
-        <Row>
-          <Col className={styles.footerContainer}>
-            <Button variant="primary" className={styles.buttonPadding}>Submit</Button>
-            <div className={styles.tncText}>
-              By submitting this, you agree to our <span className={styles.linkText}>Terms and Conditions</span> & <span className={styles.linkText}>Privacy Policy.</span>
-            </div>
-          </Col>
-        </Row>
+        <div className={styles.footerContainer}>
+          <Button variant="primary" className={styles.buttonPadding}>Submit</Button>
+          <div className={styles.tncText}>
+            By submitting this, you agree to our <span className={styles.linkText}>Terms and Conditions</span> & <span className={styles.linkText}>Privacy Policy.</span>
+          </div>
+        </div>
       </Form>
     </div>
   );

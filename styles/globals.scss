@@ -61,14 +61,14 @@ a {
     position: relative;
     margin-right: 8px;
     top: -1px;
-    @include fluid-image($mobile-view, $desktop-view, 15px, 20px)
+    @include fluid-width($mobile-view, $desktop-view, 15px, 20px)
   }
 
   .rightIcon {
     position: relative;
     margin-left: 8px;
     top: -1px;
-    @include fluid-image($mobile-view, $desktop-view, 15px, 20px)
+    @include fluid-width($mobile-view, $desktop-view, 15px, 20px)
   }
 
   &-primary {
@@ -357,7 +357,7 @@ input {
 }
 
 .react-horizontal-scrolling-menu--scroll-container {
-  @include phone() {
+  @include tablet() {
     overflow-x: scroll;
   }
   overflow-x: hidden;

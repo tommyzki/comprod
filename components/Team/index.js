@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { Row, Col, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import styles from './Team.module.scss';
 import useDrag from './useDrag.ts';
@@ -23,7 +23,7 @@ export default function Team() {
     
 
     return (
-    <div id='about'>
+    <div className='container' id='about'>
         <div className={ styles.headerContainer }>
             <div className='headerTitle'>
                 People in Concise
@@ -34,6 +34,7 @@ export default function Team() {
             <ScrollMenu 
                 onMouseDown={() => dragStart}
                 onMouseUp={() => dragStop}
+                // eslint-disable-next-line react/jsx-no-bind
                 onMouseMove={handleDrag}
                 id='slider' 
             >

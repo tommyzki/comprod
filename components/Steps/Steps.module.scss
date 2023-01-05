@@ -1,27 +1,5 @@
 @import "styles/mixins";
 
-.container {
-    width: 100%;
-    max-width: $desktop-view;
-    margin: auto;
-    padding: 60px 40px;
-    @include phone() {
-        margin: 0;
-        padding: 40px 20px;
-    }
-}
-
-.headerText{
-    @include bold;
-    @include text-40;
-    padding-bottom: 30px;
-    @include phone() {
-      margin-left: 0px;
-      padding-bottom: 0px;
-      @include text-24;
-    }
-}
-
 .fullPageScroll{
     margin: 0 auto;
     min-height: 100vh;
@@ -49,17 +27,14 @@
         z-index: -2;
         @media (min-width: 767px) {
             max-width: 569px;
+            padding-top: 16px;
         }
         .video{
             opacity: 0;
-            //padding-top: 473px;
             pointer-events: none;
             transition: all .6s ease;
             visibility: hidden;
             width: 100%;
-            @media (max-width: 1600px) {
-                // padding-top: 400px;
-            }
             &.active {
                 opacity: 1;
                 pointer-events: all;
@@ -74,9 +49,6 @@
     .scrolling{
         padding: 0;
         .section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             margin: 55px 0;
             @media (min-width: 767px) {
                 margin-bottom: 700px;
@@ -88,9 +60,12 @@
                 }
             }
             &:first-child {
-                margin-top: 150px;
+                margin-top: 185px;
+                @media (max-width: 1000px){
+                    margin-top: 140px;
+                }
                 @media (max-width: 767px){
-                    margin-top: 40px;
+                    margin-top: 16px;
                 }
             }
             &:last-child {
@@ -101,46 +76,34 @@
             }
             .sectionHeader{
                 @include bold;
-                @include text-24;
+                @include font-subtitle;
                 color: $primary-color-main;
-                @include phone() {
-                    @include semiBold;
-                    @include text-16;
-                    color: $primary-color-main;
-                }
             }
             .sectionBody{
-                @include text-16;
+                @include font-text;
                 padding: 20px 0px 40px 0px;
-                @include phone() {
-                    font-weight: 400;
-                    @include text-12;
+                @include tablet() {
                     padding: 20px 0px;
                 }
             }
             .sectionFooter{
                 @include bold;
-                font-size: 18px;
-                line-height: 22px;
+                @include font-text;
                 text-decoration: underline;
                 text-underline-offset: 4px;
                 color: $primary-color-main;
-                @include phone() {
-                    @include text-16;
-                    color: $primary-color-main;
-                }
             }
         }
         .sectionData{
             @media (min-width: 767px) {
-                padding-left: 80px;
+                padding-left: 20px;
             }
         }
     }
     .mobileImage {
         width: 100%;
         @media (max-width: 900px) {
-            margin-top: 40px;
+            margin-top: 18px;
         }
     }
 
@@ -167,5 +130,4 @@
 
 .moreWork {
     padding-left: 0px;
-    margin-top: 22px;
 }

@@ -27,11 +27,11 @@ export default function Steps() {
 
   return (
     <Row
-      className={[styles.fullPageScroll, styles.container].join(" ")}
+      className={[styles.fullPageScroll, 'container'].join(" ")}
       id="work"
     >
       <Col md={7} className={styles.fixed}>
-        <div className={styles.headerText}>
+        <div className='headerTitle'>
           The collaboration we do and the product we build.
         </div>
         <div className={[styles.imageContainer, styles.hiddenMobile].join(" ")}>
@@ -63,7 +63,7 @@ export default function Steps() {
             />
           </div>
         </div>
-        <div>
+        <div className={styles.hiddenMobile}>
           <Button className={styles.moreWork} variant="primary-text">See more work<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
         </div>
       </Col>
@@ -130,6 +130,9 @@ export default function Steps() {
               </div>
             </div>
           </div>
+        </div>
+        <div className={styles.visibleMobile}>
+          <Button className={styles.moreWork} variant="primary-text">See more work<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
         </div>
       </Col>
     </Row>

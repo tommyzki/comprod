@@ -1,57 +1,45 @@
 @import "styles/mixins";
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    padding: 60px 0px 160px 0px;
-    @include phone() {
-        text-align: left;
-        margin: 0;
-        padding: 40px 20px 80px 20px;
+.maxContainer {
+    max-width: 700px;
+    @include tablet() {
+      max-width: none;
     }
 }
 
 .bodyContainer{
   margin: 40px 0 16px 0;
-  @include phone() {
-    margin: 24px 0;
+  @include tablet() {
+    margin: 0px 0px 24px -12px;
   }
 }
 
 .footerContainer{
   display: flex;
   align-items: center;
-  margin: 0 15px;
-  @include phone() {
+  margin: 0 12px;
+  @include tablet() {
     display: block;
+    margin: 0px;
   }
 }
 
 .buttonPadding{
   margin: 0 24px 0 0;
   min-width: 140px;
-  @include phone() {
+  @include tablet() {
     display: block;
     margin: 10px 0;
   }
 }
 
-.textTitle {
-  @include semiBold;
-  @include text-40;
+.padTitle{
   text-align: center;
-  &.padTitle{
-      justify-content: center;
-    @include phone() {
-      margin-top: 20px;
-      margin-left: 0px;
-      @include text-24;
-    }
-  }
-  @include phone() {
+  @include tablet() {
+    text-align: left;
+    margin-top: 20px;
     margin-left: 0px;
-    font-size: 36px;
-    line-height: 54px;
+    @include text-24;
   }
 }
 

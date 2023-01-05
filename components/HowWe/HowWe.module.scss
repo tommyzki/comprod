@@ -24,6 +24,12 @@
     .checkIcon{
       margin-bottom: 20px;
     }
+    .resizeImg{
+      @include fluid-width($mobile-view, $desktop-view, 160px, 228px)
+    }
+    .resizeImg2{
+      @include fluid-width($mobile-view, $desktop-view, 25px, 32px)
+    }
     @include phone() {
         margin-top: 40px;
     }
