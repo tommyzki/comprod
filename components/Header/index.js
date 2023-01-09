@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <div className={[styles.fixedHeader, context.themeContext === "white" ? styles.whiteColor : styles.blueColor].join(" ")}     >
       <Navbar className={styles.container} expand="md">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand>
           <Link href="/">
             <div className={styles.imageWrapper}>
               <Image
@@ -33,12 +33,12 @@ export default function Header() {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
           <Nav className='ms-auto'>
             <Nav className='p-2'>
-              <Link href="#work">
+              <Link href="/work">
                 Work
               </Link>
             </Nav>
             <Nav className='p-2'> 
-              <Link href="#about">
+              <Link href="/about-us">
                 About Us
               </Link>
             </Nav>

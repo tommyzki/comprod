@@ -1,75 +1,52 @@
 @import "styles/mixins";
 
-.container {
-  max-width: $desktop-view;
-  margin: auto;
-  padding: 40px;
 
-  @include phone() {
-    text-align: left;
-    margin: 0;
-    padding: 40px 20px;
-  }
-}
-
-.headerTitle64 {
-  @include bold;
-  font-size: 80px;
-  line-height: 97px;
-  
-  max-width: 500px;
+.headerTitle {
+  @include font-bigTitle;
   text-align: center;
-  margin: 200px auto 40px auto;
-  z-index: 1;
-
-  @include phone() {
+  padding: 64px;
+  @include tablet() {
     text-align: left;
-    margin-left: 0px;
-    font-size: 36px;
-    line-height: 54px;
+    padding: 32px 0 32px 0;
   }
-
 }
 
-.imageAbsolute {
-  position: relative;
-
-  &-imageLeft {
-    height: 250px;
-    width: 250px;
-    position: absolute;
-    left: 0;
-    top: 100px;
-    z-index: 0;
-
-    @include tablet() {
-      height: 150px;
-      width: 150px;
-    }
-
-    @include phone() {
-      display: none;
-    }
+.headerSubTitle {
+  @include font-bigSubTitle;
+  margin: 0px auto 50px auto;
+  text-align: center;
+  max-width: 1100px;
+  @include tablet() {
+    text-align: left;
   }
+}
 
-  &-imageRight {
-    height: 250px;
-    width: 250px;
-    position: absolute;
-    right: 0;
-    top: 200px;
-    z-index: 0;
+.gallery {
+  margin-top: 160px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-rows: repeat(5, 400px);
+  grid-gap: 2rem;
+  grid-auto-flow: dense;
+  @include tablet() {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(10, 200px);
+  }
+}
 
-    @include tablet() {
-      height: 150px;
-      width: 150px;
-    }
+.figureFix {
+  overflow: hidden;
+  border-radius: 8px;
+}
 
-    @include phone() {
-      height: 150px;
-      width: 150px;
-      top: 40px;
-      // display: none;
-    }
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  overflow: hidden;
+  &:hover{
+      transition: transform 1s, filter 2s ease-in-out;
+      transform: scale(1.2);
   }
 }

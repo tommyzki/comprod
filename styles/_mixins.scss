@@ -183,6 +183,15 @@ $mobile-view: 576px;
   @include fluid-type($mobile-view, $desktop-view, 12px, 16px, 16px, 22px)
 }
 
+@mixin font-bigTitle {
+  @include bold;
+  @include fluid-type($mobile-view, $desktop-view, 28px, 72px, 36px, 90px)
+}
+
+@mixin font-bigSubTitle {
+  @include fluid-type($mobile-view, $desktop-view, 18px, 28px, 24px, 36px)
+}
+
 @mixin font-title {
   @include bold;
   @include fluid-type($mobile-view, $desktop-view, 24px, 40px, 32px, 48px)
@@ -194,4 +203,13 @@ $mobile-view: 576px;
 
 @mixin font-text {
   @include fluid-type($mobile-view, $desktop-view, 12px, 16px, 16px, 22px)
+}
+
+@mixin font-title-2 {
+  @include bold;
+  @include fluid-type($mobile-view, $desktop-view, 24px, 32px, 32px, 40px)
+}
+
+@mixin font-subtitle-2 {
+  @include fluid-type($mobile-view, $desktop-view, 16px, 20px, 22px, 26px)
 }

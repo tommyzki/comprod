@@ -8,9 +8,11 @@
         "airbnb",
         "prettier"
     ],
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true
+            "jsx": true,
+            "ts": true
         },
         "ecmaVersion": "latest",
         "sourceType": "module"

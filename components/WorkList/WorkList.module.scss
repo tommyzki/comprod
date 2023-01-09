@@ -1,0 +1,66 @@
+@import "styles/mixins";
+
+.headerTitle {
+    @include font-bigTitle;
+    text-align: center;
+    padding: 64px;
+    @include tablet() {
+      text-align: left;
+      padding: 32px 0 32px 0;
+    }
+}
+  
+.headerSubTitle {
+    @include font-bigSubTitle;
+    margin: 0px auto 50px auto;
+    text-align: center;
+    max-width: 1100px;
+    @include tablet() {
+      text-align: left;
+    }
+}
+
+.workContainer {
+    margin-top: 160px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-rows: repeat(2, 180px);
+    grid-gap: 2rem;
+    grid-auto-flow: dense;
+    @include tablet() {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-rows: repeat(4, 180px);
+    }
+}
+
+.figureFix {
+    overflow: hidden;
+    border-radius: 8px;
+}
+  
+.gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    overflow: hidden;
+    &:hover{
+        transition: transform 1s, filter 2s ease-in-out;
+        transform: scale(1.2);
+    }
+}
+
+.workTitle{
+    @include font-title-2;
+    text-align: center;
+    margin: 72px auto 12px auto;
+  }
+  
+  .workSubTitle{
+    @include font-subtitle-2;
+    text-align: center;
+    margin: 12px auto;
+  }
