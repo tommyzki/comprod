@@ -1,10 +1,19 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Lightbox from "react-18-image-lightbox";
 import styles from "./WorkList.module.scss";
-import { worklists } from "./worklists.ts";
+import { worklists } from "../../public/data/worklists.ts";
+import AppContext from '../../components/AppContext/AppContext';
+import Slide from 'react-reveal';
 
 export default function WeAreSpectacle() {
+  const context = useContext(AppContext);
+
+  useEffect(()=>{
+    context.setThemeContext("white");
+  },[])
+
+
   const [index1, setIndex1] = useState(-1);
   const [index2, setIndex2] = useState(-1);
 
@@ -26,7 +35,7 @@ export default function WeAreSpectacle() {
         {worklists.map((work, idx1)=>(
             // eslint-disable-next-line react/no-array-index-key
             <div key={idx1} className={styles.workContainer}>
-
+              <Slide bottom>
                 <div className={styles.gallery}>
                     {work.images.map((image, idx2)=>(
 
@@ -43,13 +52,13 @@ export default function WeAreSpectacle() {
                         </figure>
                     ))}
                 </div>
-
                 <div className={styles.workTitle}>
                     {work.project_name}
                 </div>
                 <div className={styles.workSubTitle}>
                     {work.project_detail}
                 </div>
+              </Slide>
             </div>
         ))}
 

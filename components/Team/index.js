@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Button } from 'react-bootstrap'
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
+import Link from 'next/link'
 import styles from './Team.module.scss';
 import useDrag from './useDrag.ts';
-
-
 
 export default function Team() {
 
@@ -24,9 +23,12 @@ export default function Team() {
 
     return (
     <div className='container' id='about'>
-        <div className={ styles.headerContainer }>
+        <div className={['allCenter', styles.maxContainer].join(" ")}>
             <div className='headerTitle'>
-                People in Concise
+                About our team
+            </div>
+            <div className='headerText'>
+                Our coffee-powered team who are eager to build the product you imagine it to be.
             </div>
         </div>
 
@@ -60,11 +62,9 @@ export default function Team() {
         </div>
 
         <div className={styles.subTitle}>
-            Our coffee-powered team who are eager to build the product you imagine it to be.
-        </div>
-
-        <div className={styles.subTitle}>
-            <Button variant="primary-text" className={styles.buttonPadding}>Learn more about us<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
+            <Link href="/about-us">
+                <Button variant="primary-text" className={styles.buttonPadding}>Learn more about us<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
+            </Link>
         </div>
     </div>
   )

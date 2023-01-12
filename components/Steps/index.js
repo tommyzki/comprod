@@ -1,15 +1,31 @@
 import Image from "next/image";
 import { Row, Col, Button } from "react-bootstrap";
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo, createRef } from 'react';
+import Link from 'next/link'
 import styles from "./Steps.module.scss";
+import { worklists } from "../../public/data/worklists.ts";
 
 export default function Steps() {
+  const [showMore, setShowMore] = useState([false]);
 
-  const myRef1 = useRef();
-  const myRef2 = useRef();
-  const myRef3 = useRef();
+  const refsById = useMemo(() => {
+    const refs = {}
+    worklists.forEach((item) => {
+      refs[item.id] = createRef()
+    })
+    return refs
+  }, [worklists])
+
   const [myElementIsVisible, updateMyElementIsVisible] = useState("");
   let observer = null
+
+  const changeText = (index) => {
+    let newArray = showMore
+    newArray[index] = !showMore[index]
+    setShowMore([
+      ...newArray
+    ])
+  }
 
   useEffect(() => {
     observer = new IntersectionObserver((entries) => {
@@ -18,123 +34,80 @@ export default function Steps() {
           updateMyElementIsVisible(data.target.id);
         }
       })
-      
     });
-    observer.observe(myRef1.current);
-    observer.observe(myRef2.current);
-    observer.observe(myRef3.current);
+    observer.observe(refsById[1].current);
+    observer.observe(refsById[2].current);
+    observer.observe(refsById[3].current);
   }, []);
 
   return (
-    <Row
-      className={[styles.fullPageScroll, 'container'].join(" ")}
-      id="work"
-    >
-      <Col md={7} className={styles.fixed}>
-        <div className='headerTitle'>
-          The collaboration we do and the product we build.
+    <div>
+      <div className={['allCenter', styles.maxContainer].join(" ")}>
+        <div className={'headerTitle'}>
+          A glimpse of our work
         </div>
-        <div className={[styles.imageContainer, styles.hiddenMobile].join(" ")}>
-          <div className={[styles.video, myElementIsVisible === "myref1" ? styles.active : ''].join(" ")}>
-            <Image
-              src="/image/image-placeholder1.png"
-              viewBox="0 0 1500 1538"
-              width={1500}
-              height={750}
-              className={styles.svgStyles}
-            />
-          </div>
-          <div className={[styles.video, myElementIsVisible === "myref2" ? styles.active : ''].join(" ")}>
-            <Image
-              src="/image/image-placeholder2.png"
-              viewBox="0 0 1500 1538"
-              width={1500}
-              height={750}
-              className={styles.svgStyles}
-            />
-          </div>
-          <div className={[styles.video, myElementIsVisible === "myref3" ? styles.active : ''].join(" ")}>
-            <Image
-              src="/image/image-placeholder3.png"
-              viewBox="0 0 1500 1538"
-              width={1500}
-              height={750}
-              className={styles.svgStyles}
-            />
-          </div>
+        <div className={'headerText'}>
+          Take a look at some of our recent work and see how we can help bring your imagination to life.
         </div>
-        <div className={styles.hiddenMobile}>
-          <Button className={styles.moreWork} variant="primary-text">See more work<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
-        </div>
-      </Col>
-      <Col md={5} className={styles.scrolling}>
-        <div className={styles.section}>
-          <div className={styles.sectionData}>
-            <div ref={myRef1} id="myref1" className={styles.sectionHeader}>Project Name</div>
-            <div className={styles.sectionBody}>
-              Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, scrambled it to make a type specimen book.
+      </div>
+      <div
+          className={[styles.fullPageScroll, 'container'].join(" ")}
+          id="work"
+      >
+        <Row>
+          <Col md={7} className={styles.fixed}>
+            <div className={[styles.imageContainer, styles.hiddenMobile].join(" ")}>
+              {worklists.slice(0, 3).map((work, idx1)=>(
+                <div key={work.id} id={work.id} className={[styles.video, myElementIsVisible === "myref".concat(work.id) ? styles.active : ''].join(" ")}>
+                  
+                  <Image
+                    src={work.images[0].src}
+                    viewBox="0 0 1500 1538"
+                    width={584}
+                    height={392}
+                    className={styles.svgStyles}
+                  />
+                </div>
+              ))}
             </div>
-            <div className={styles.sectionFooter}>View work</div>
-            <div
-              className={[styles.imageContainer, styles.visibleMobile].join(" ")}>
-              <div className={styles.mobileImage}>
-                <Image
-                  src="/image/image-placeholder1.png"
-                  viewBox="0 0 1500 1538"
-                  width={500}
-                  height={250}
-                  className={styles.svgStyles}
-                />
+            <div className={styles.hiddenMobile}>
+            <Link href="/work">
+              <Button className={styles.moreWork} variant="primary-text">See more work<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
+            </Link>
+            </div>
+          </Col>
+          <Col md={5} className={styles.scrolling}>
+          {worklists.slice(0, 3).map((work, idx1)=>(
+            <div key={work.id} className={[styles.section, showMore[idx1] ? styles.viewClick : ""].join(" ")}>
+              <div className={styles.sectionData}>
+                <div ref={refsById[work.id]} id={"myref"+work.id} className={styles.sectionHeader}>{work.project_name}</div>
+                <div className={styles.sectionBody}>
+                  {showMore[idx1] ? work.project_detail : work.project_detail.substring(0, 250)}
+                </div>
+                <Button variant="primary-text" className={styles.sectionFooter} onClick={() => changeText(idx1)}>{showMore[idx1] ? "View less" : "View more"}</Button>
+                <div
+                  className={[styles.imageContainer, styles.visibleMobile].join(" ")}>
+                  <div className={styles.mobileImage}>
+                    <Image
+                      src={work.images[0].src}
+                      viewBox="0 0 1500 1538"
+                      width={584}
+                      height={392}
+                      className={styles.svgStyles}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className={styles.section}>
-          <div className={styles.sectionData}>
-            <div ref={myRef2} id="myref2" className={styles.sectionHeader}>Project Name</div>
-            <div className={styles.sectionBody}>
-              Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, scrambled it to make a type specimen book.
-            </div>
-            <div className={styles.sectionFooter}>View work</div>
-            <div
-              className={[styles.imageContainer, styles.visibleMobile].join(" ")}>
-              <div className={styles.mobileImage}>
-                <Image
-                  src="/image/image-placeholder2.png"
-                  viewBox="0 0 1500 1538"
-                  width={500}
-                  height={250}
-                  className={styles.svgStyles}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.section}>
-          <div className={styles.sectionData}>
-            <div ref={myRef3} id="myref3" className={styles.sectionHeader}>Project Name</div>
-            <div className={styles.sectionBody}>
-              Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, scrambled it to make a type specimen book.
-            </div>
-            <div className={styles.sectionFooter}>View work</div>
-            <div
-              className={[styles.imageContainer, styles.visibleMobile].join(" ")}>
-              <div className={styles.mobileImage}>
-                <Image
-                  src="/image/image-placeholder3.png"
-                  viewBox="0 0 1500 1538"
-                  width={500}
-                  height={250}
-                  className={styles.svgStyles}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+          ))}
+          </Col>
+        </Row>
         <div className={styles.visibleMobile}>
-          <Button className={styles.moreWork} variant="primary-text">See more work<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
+          <Link href="/work">
+            <Button className={styles.moreWork} variant="primary-text">See more work<img className='rightIcon' src="/icon/arrowright.svg" alt="add item" width="30"/></Button>
+          </Link>
         </div>
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 }

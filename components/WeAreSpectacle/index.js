@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Lightbox from "react-18-image-lightbox";
 import styles from "./WeAreSpectacle.module.scss";
-import { images } from "./images.ts";
+import { images } from "../../public/data/images.ts";
 
 export default function WeAreSpectacle() {
   const [index, setIndex] = useState(-1);

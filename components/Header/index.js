@@ -9,7 +9,7 @@ export default function Header() {
   const context = useContext(AppContext);
 
   return (
-    <div className={[styles.fixedHeader, context.themeContext === "white" ? styles.whiteColor : styles.blueColor].join(" ")}     >
+    <div className={[styles.fixedHeader, context.themeContext === "white" ? styles.whiteColor : styles.blackColor].join(" ")}     >
       <Navbar className={styles.container} expand="md">
         <Navbar.Brand>
           <Link href="/">

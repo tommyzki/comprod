@@ -20,6 +20,7 @@
     "react-dom": "18.0.0",
     "react-grid-gallery": "^1.0.0",
     "react-horizontal-scrolling-menu": "^3.2.3",
+    "react-reveal": "^1.2.2",
     "react-spring": "^9.4.4",
     "sass": "^1.57.1"
   },

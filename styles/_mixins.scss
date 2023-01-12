@@ -194,11 +194,11 @@ $mobile-view: 576px;
 
 @mixin font-title {
   @include bold;
-  @include fluid-type($mobile-view, $desktop-view, 24px, 40px, 32px, 48px)
+  @include fluid-type($mobile-view, $desktop-view, 20px, 32px, 26px, 40px)
 }
 
 @mixin font-subtitle {
-  @include fluid-type($mobile-view, $desktop-view, 16px, 24px, 22px, 32px)
+  @include fluid-type($mobile-view, $desktop-view, 14px, 20px, 18px, 26px)
 }
 
 @mixin font-text {
