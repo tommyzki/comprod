@@ -8,7 +8,6 @@ import Review from '../components/Review';
 import FootLine from '../components/FootLine';
 import Team from '../components/Team';
 import AppContext from '../components/AppContext/AppContext';
-import Zoom from 'react-reveal/Zoom';
 
 export default function Home() {
   const context = useContext(AppContext);
@@ -30,9 +29,7 @@ export default function Home() {
     <SSRProvider>
       <Layout pageTitle="Home">
         <HeadLine />
-        <Zoom>
-          <Review />
-        </Zoom>
+        <Review />
         <HowWe />
         <Steps />
         <Team />

@@ -8,18 +8,17 @@
 .footerBg{
     border-top: 1px solid $neutral-color;;
     color: $neutral-black-color;
-    
 }
 
 .footerContainer{
     display: flex;
     flex-direction: column;
-    padding: 60px 40px;
+    padding: 80px 40px;
     max-width: $desktop-view;
     margin: auto;
     @include phone(){
         padding: 20px 20px;
-      }
+    }
 }
 
 .content {

@@ -36,6 +36,7 @@
 
 .imageScroll {
   max-width: 500px;
+  max-height: 230px;
   padding: 0 20px 0 0;
   cursor: pointer;
   @include tablet() {

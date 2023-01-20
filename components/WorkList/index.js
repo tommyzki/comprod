@@ -26,7 +26,7 @@ export default function WeAreSpectacle() {
   return (
     <div className='container'>
       <div className={styles.headerTitle}>
-        The collaboration we do and the product we build.
+        The collaboration we do <br/>and the product we build.
       </div>
       <div className={styles.headerSubTitle}>
         We approach every project with professionalism and dedication, but we also enjoy building relationships with our clients and approach our work with a friendly, collaborative attitude. Take a look around and don&rsquo;t hesitate to get in touch if you have any questions or would like to work with us.
