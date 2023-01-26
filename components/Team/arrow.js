@@ -9,20 +9,6 @@ function Arrow({
   addstyle
 }) {
 
-  const devStyle = {
-    display: "flex",
-    height: "48px",
-    width: "48px",
-    borderRadius: "50%",
-    background: "#F54949",
-    margin: "auto",
-    border: "none",
-    position: "relative",
-    zIndex: "1",
-  }
-
-  let applyStyle = Object.assign(devStyle, addstyle)
-
   return (
     <button
       disabled={disabled}
@@ -55,7 +41,7 @@ export function LeftArrow() {
 
   return (
     <Arrow addstyle={{left: "40px"}} disabled={disabled} onClick={() => scrollPrev()}>
-      <img style={{margin: "auto"}} src="/icon/leftArrow.svg" height={26} alt="left"/>
+      <img loading="lazy" style={{margin: "auto"}} src="/icon/leftArrow.svg" height={10} alt="left"/>
     </Arrow>
   );
 }
@@ -76,7 +62,7 @@ export function RightArrow() {
 
   return (
     <Arrow addstyle={{right: "40px"}} disabled={disabled} onClick={() => scrollNext()}>
-      <img style={{margin: "auto"}} src="/icon/rightArrow.svg" height={26} alt="left"/>
+      <img loading="lazy" style={{margin: "auto"}} src="/icon/rightArrow.svg" height={10} alt="right"/>
     </Arrow>
   );
 }

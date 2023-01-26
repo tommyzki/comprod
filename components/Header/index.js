@@ -24,7 +24,8 @@ export default function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <Image
-            src={context.themeContext === "white" ? "/icon/list-black.svg" : "/icon/list-white.svg"} //
+            src={context.themeContext === "white" ? "/icon/list-black.svg" : "/icon/list-white.svg"} 
+            alt="list"
             width={24}
             height={24}
             className={styles.checkIcon}

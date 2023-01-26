@@ -2,7 +2,7 @@
 import { Button } from 'react-bootstrap'
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import { LeftArrow, RightArrow } from "./arrow";
-import { images } from "../../public/data/images.ts";
+import { homeimages } from "../../public/data/images.ts";
 import Link from 'next/link'
 import styles from './Team.module.scss';
 import useDrag from './useDrag.ts';
@@ -44,7 +44,7 @@ export default function Team() {
                 id='slider' 
             >
 
-                {images.slice(0, 8).map((image, idx)=>(
+                {homeimages.slice(0, 8).map((image, idx)=>(
                     // eslint-disable-next-line react/no-array-index-key
                     <img
                         key={idx}
@@ -53,27 +53,7 @@ export default function Team() {
                         alt={"aboutus" + idx}
                         draggable="false"
                     />
-
                 ))}
-
-                <img
-                    className={ styles.imageScroll }
-                    src="/image/image-placeholder1.png"
-                    alt="First slide"
-                    draggable="false"
-                />
-                <img
-                    className={ styles.imageScroll }
-                    src="/image/image-placeholder2.png"
-                    alt="First slide"
-                    draggable="false"
-                />
-                <img
-                    className={ styles.imageScroll }
-                    src="/image/image-placeholder3.png"
-                    alt="First slide"
-                    draggable="false"
-                />
             </ScrollMenu>
         </div>
 

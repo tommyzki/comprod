@@ -24,6 +24,7 @@ export default function HowWe() {
                     width={228}
                     height={32}
                     className={[styles.checkIcon, styles.resizeImg].join(" ")}
+                    alt="ideate"
                 />
                 <p className={styles.whytitle}>
                     Ideate
@@ -38,6 +39,7 @@ export default function HowWe() {
                     width={228}
                     height={32}
                     className={[styles.checkIcon, styles.resizeImg].join(" ")}
+                    alt="design"
                 />
                 <p className={styles.whytitle}>
                     Design
@@ -52,6 +54,7 @@ export default function HowWe() {
                     width={228}
                     height={32}
                     className={[styles.checkIcon, styles.resizeImg].join(" ")}
+                    alt="build"
                 />
                 <p className={styles.whytitle}>
                     Build
@@ -66,6 +69,7 @@ export default function HowWe() {
                     width={32}
                     height={32}
                     className={[styles.checkIcon, styles.resizeImg2].join(" ")}
+                    alt="improve"
                 />
                 <p className={styles.whytitle}>
                     Improve

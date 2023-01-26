@@ -8,7 +8,7 @@ export default function Footer() {
     <div>
       <Row>
         <Col md={3} xl={3}>
-          <Image src="/logo.svg" width={102} height={35} />
+          <Image src="/logo.svg" width={102} height={35} alt="logo" />
           <p className={styles.copyright}>Concise © 2022</p>
         </Col>
         <Col xs={6} md={3} xl={3}>

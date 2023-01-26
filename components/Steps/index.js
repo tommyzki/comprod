@@ -61,6 +61,7 @@ export default function Steps() {
                 <div key={work.id} id={work.id} className={[styles.video, myElementIsVisible === "myref".concat(work.id) ? styles.active : ''].join(" ")}>
                   
                   <Image
+                    alt={work.images[0].src}
                     src={work.images[0].src}
                     viewBox="0 0 1500 1538"
                     width={584}
@@ -82,13 +83,17 @@ export default function Steps() {
               <div className={styles.sectionData}>
                 <div ref={refsById[work.id]} id={"myref"+work.id} className={styles.sectionHeader}>{work.project_name}</div>
                 <div className={styles.sectionBody}>
-                  {showMore[idx1] ? work.project_detail : work.project_detail.substring(0, 250)}
+                  {showMore[idx1] ? work.project_detail: work.project_detail.substring(0, 160) + "..."}
                 </div>
-                <Button variant="primary-text" className={styles.sectionFooter} onClick={() => changeText(idx1)}>{showMore[idx1] ? "View less" : "View more"}</Button>
+                <Link href={"/work#"+work.id}>
+                  <Button variant="primary-text" className={styles.sectionFooter}>View more</Button>
+                  {/* <Button variant="primary-text" className={styles.sectionFooter} onClick={() => changeText(idx1)}>{showMore[idx1] ? "View less" : "View more"}</Button> */}
+                </Link>
                 <div
                   className={[styles.imageContainer, styles.visibleMobile].join(" ")}>
                   <div className={styles.mobileImage}>
                     <Image
+                      alt={work.images[0].src}
                       src={work.images[0].src}
                       viewBox="0 0 1500 1538"
                       width={584}

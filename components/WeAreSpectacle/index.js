@@ -37,6 +37,7 @@ export default function WeAreSpectacle() {
             alt="First slide"
             onClick={() => handleClick(idx)}
             onKeyDown={() => handleClick(idx)}
+            loading="lazy"
           />
         </figure>
 

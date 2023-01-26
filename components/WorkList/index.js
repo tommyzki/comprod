@@ -34,7 +34,7 @@ export default function WeAreSpectacle() {
 
         {worklists.map((work, idx1)=>(
             // eslint-disable-next-line react/no-array-index-key
-            <div key={idx1} className={styles.workContainer}>
+            <div id={work.id} key={idx1} className={styles.workContainer}>
               <Slide bottom>
                 <div className={styles.gallery}>
                     {work.images.map((image, idx2)=>(
@@ -48,6 +48,7 @@ export default function WeAreSpectacle() {
                             draggable="false"
                             onClick={() => handleClick(idx1,idx2)}
                             onKeyDown={() => handleClick(idx1,idx2)}
+                            loading="lazy"
                         />
                         </figure>
                     ))}

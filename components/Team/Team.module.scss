@@ -35,9 +35,10 @@
 }
 
 .imageScroll {
-  max-width: 500px;
-  max-height: 230px;
-  padding: 0 20px 0 0;
+  max-width: 700px;
+  max-height: 400px;
+  margin: 0 20px 0 0;
+  border-radius: 8px;
   cursor: pointer;
   @include tablet() {
     max-width: 350px;
